@@ -34,7 +34,7 @@ export function Hero() {
           applications. Passionate about creating seamless user experiences from
           backend to frontend.
         </p>
-        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
           {linkedinLink && (
             <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer">
               <Button size="lg">

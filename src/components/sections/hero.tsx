@@ -12,21 +12,16 @@ export function Hero({ skills }: HeroProps) {
   return (
     <section id="home" className="relative container flex flex-col items-center justify-center py-32 md:py-48 min-h-[80vh] overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
-        <h1 className="text-[12rem] md:text-[24rem] font-bold font-headline text-center text-muted-foreground/10 select-none whitespace-nowrap leading-none">
+        <h1 className="text-[10rem] md:text-[20rem] font-bold font-headline text-center text-muted-foreground/10 select-none whitespace-nowrap leading-none">
           ADITYA
         </h1>
       </div>
       
       <div className="relative w-64 h-64 md:w-80 md:h-80">
         <div className="absolute inset-0 rounded-full flex items-center justify-center">
-          <Image
-            src="https://picsum.photos/seed/10/400/400"
-            alt="Aditya Patil"
-            width={400}
-            height={400}
-            data-ai-hint="man portrait"
-            className="rounded-full object-cover w-56 h-56 md:w-72 md:h-72 border-4 border-primary shadow-2xl"
-          />
+          <div className="text-6xl md:text-7xl font-bold font-headline text-center text-primary select-none leading-none">
+            Aditya Patil
+          </div>
         </div>
         
         {allTech.map((tech, index) => {

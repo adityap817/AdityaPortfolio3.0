@@ -33,8 +33,7 @@ const skills = [
 export function About() {
   return (
     <section id="about" className="container py-24 sm:py-32">
-      <div className="bg-muted/50 rounded-lg py-12">
-        <div className="px-6 flex flex-col gap-8 md:gap-12">
+        <div className="flex flex-col gap-8 md:gap-12">
             <div className="pb-6 text-center">
               <h2 className="text-3xl md:text-4xl font-bold font-headline">
                 <span className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
@@ -56,7 +55,7 @@ export function About() {
                   </CardHeader>
                   <CardContent className="flex flex-wrap gap-2">
                     {skillCategory.technologies.map((tech) => (
-                       <div key={tech} className="bg-background border text-sm text-foreground px-3 py-1 rounded-md">
+                       <div key={tech} className="bg-secondary/20 border text-sm text-foreground px-3 py-1 rounded-md">
                         {tech}
                       </div>
                     ))}
@@ -65,7 +64,6 @@ export function About() {
               ))}
             </div>
         </div>
-      </div>
     </section>
   );
 }

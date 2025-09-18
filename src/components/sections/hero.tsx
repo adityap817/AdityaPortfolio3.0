@@ -10,20 +10,20 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative flex flex-col items-center justify-center py-32 md:py-48 min-h-[80vh] overflow-hidden"
+      className="relative flex flex-col justify-center py-32 md:py-48 min-h-[80vh] overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 dark:bg-primary/20 rounded-full blur-3xl opacity-50 flow-item-1"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/20 dark:bg-accent/20 rounded-full blur-3xl opacity-50 flow-item-2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 dark:bg-primary/20 rounded-full blur-3xl opacity-50 flow-item-3"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 dark:bg-primary/10 rounded-full blur-3xl opacity-50 flow-item-1"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/20 dark:bg-accent/10 rounded-full blur-3xl opacity-50 flow-item-2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 dark:bg-primary/10 rounded-full blur-3xl opacity-50 flow-item-3"></div>
       </div>
 
-      <div className="absolute inset-0 flex items-center justify-center">
+      <div className="absolute inset-0 flex items-center justify-center -z-10">
         <h1 className="text-[10rem] md:text-[20rem] font-bold font-headline text-center text-muted-foreground/10 select-none whitespace-nowrap leading-none">
           ADITYA
         </h1>
       </div>
-      <div className="relative text-center container">
+      <div className="relative text-center container flex flex-col items-center">
         <h2 className="text-6xl md:text-8xl font-bold font-headline">
           <span className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
             Aditya Patil
@@ -34,7 +34,7 @@ export function Hero() {
           applications. Passionate about creating seamless user experiences from
           backend to frontend.
         </p>
-        <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div className="mt-24 flex flex-col sm:flex-row items-center justify-center gap-4">
           {linkedinLink && (
             <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer">
               <Button size="lg">

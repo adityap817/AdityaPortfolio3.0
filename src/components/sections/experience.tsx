@@ -44,23 +44,23 @@ export function Experience({ milestones }: ExperienceProps) {
             <div 
               key={index} 
               className="relative flex flex-col items-center group"
-              // Align items alternately above and below the line
-              style={{ transform: isAbove ? 'translateY(-80px)' : 'translateY(80px)' }}
             >
               {/* Dot on the timeline */}
               <div 
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10"
               ></div>
               
-              <div className={`absolute left-1/2 -translate-x-1/2 ${isAbove ? 'bottom-full mb-4' : 'top-full mt-4'} flex flex-col items-center gap-2`}>
-                 {/* Branch */}
+              <div 
+                className={`absolute left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 ${isAbove ? 'bottom-[calc(50%_+_1rem)]' : 'top-[calc(50%_+_1rem)]'}`}
+              >
+                {/* Branch */}
                 <div className="w-px h-8 bg-border"></div>
                 <div className="bg-primary text-primary-foreground text-xs font-bold rounded-full h-7 w-7 flex items-center justify-center z-10">
                     {milestone.year}
                 </div>
               </div>
               
-              <div className="relative z-20 w-64 md:w-72">
+              <div className={`relative z-20 w-64 md:w-72 ${isAbove ? 'mb-24' : 'mt-24'}`}>
                  <Card className="shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                     <CardHeader>
                       <CardTitle className="text-base">{milestone.title}</CardTitle>

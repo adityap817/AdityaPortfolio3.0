@@ -99,9 +99,9 @@ export function About() {
             <div className="pb-6">
               <h2 className="text-3xl md:text-4xl font-bold font-headline">
                 <span className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
-                  About{' '}
+                  My{' '}
                 </span>
-                Me
+                Skills
               </h2>
               <p className="text-xl text-muted-foreground mt-4">
                 I am a dedicated and results-oriented Full-Stack Developer with

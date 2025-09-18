@@ -1,93 +1,6 @@
 'use client';
-import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
-import { generateAboutMe } from '@/ai/flows/about-me-section';
-import { Loader2, Wand2, Copy, Cpu, Database, GanttChart, Server, Code } from 'lucide-react';
-
-function AboutMeGenerator() {
-  const [achievements, setAchievements] = useState('');
-  const [summary, setSummary] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const { toast } = useToast();
-
-  const handleGenerate = async () => {
-    if (!achievements.trim()) {
-      toast({
-        title: 'Input Required',
-        description: 'Please enter your achievements to generate a summary.',
-        variant: 'destructive',
-      });
-      return;
-    }
-    setIsLoading(true);
-    setSummary('');
-    try {
-      const result = await generateAboutMe({ achievements });
-      setSummary(result.summary);
-    } catch (error) {
-      console.error(error);
-      toast({
-        title: 'Error',
-        description:
-          'Failed to generate summary. Please check the console for details.',
-        variant: 'destructive',
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
-  
-  const handleCopy = () => {
-    navigator.clipboard.writeText(summary);
-    toast({
-        title: 'Copied!',
-        description: 'Summary copied to clipboard.',
-    });
-  }
-
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-          <Wand2 className="text-primary" />
-          AI Summary Generator
-        </CardTitle>
-      </CardHeader>
-      <CardContent className="space-y-4">
-        <p className="text-muted-foreground">
-          List your professional achievements below and let AI craft a catchy
-          &quot;About Me&quot; summary for you.
-        </p>
-        <Textarea
-          placeholder="e.g., Led a team of 5 engineers to build a scalable e-commerce platform, increasing sales by 30%..."
-          value={achievements}
-          onChange={(e) => setAchievements(e.target.value)}
-          rows={5}
-        />
-        <Button onClick={handleGenerate} disabled={isLoading}>
-          {isLoading ? (
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          ) : (
-            <Wand2 className="mr-2 h-4 w-4" />
-          )}
-          Generate Summary
-        </Button>
-        {summary && (
-          <div className="p-4 bg-muted/50 rounded-lg border space-y-2 relative">
-            <p className="font-semibold">Generated Summary:</p>
-            <p className="text-muted-foreground">{summary}</p>
-            <Button size="icon" variant="ghost" className="absolute top-2 right-2" onClick={handleCopy}>
-                <Copy className="h-4 w-4" />
-            </Button>
-          </div>
-        )}
-      </CardContent>
-    </Card>
-  );
-}
+import { Cpu, Database, GanttChart, Server, Code } from 'lucide-react';
 
 const skills = [
     {
@@ -151,9 +64,6 @@ export function About() {
                 </Card>
               ))}
             </div>
-        </div>
-        <div className="px-6 pt-12">
-            <AboutMeGenerator />
         </div>
       </div>
     </section>

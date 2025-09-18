@@ -4,9 +4,10 @@ import { Contact } from '@/components/sections/contact';
 import { Hero } from '@/components/sections/hero';
 import { Projects } from '@/components/sections/projects';
 import { ThemeCustomizer } from '@/components/theme-customizer';
-import { projects, socialLinks } from '@/lib/data';
+import { projects, socialLinks, careerMilestones } from '@/lib/data';
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Experience } from '@/components/sections/experience';
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        <Experience milestones={careerMilestones} />
         <About />
         <Projects projects={projects} />
         <Contact socialLinks={socialLinks} />

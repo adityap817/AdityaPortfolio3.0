@@ -12,7 +12,7 @@ export function Hero() {
             Aditya Patil
           </span>
         </h2>
-        <p className="relative text-2xl text-muted-foreground md:w-10/12 mx-auto lg:mx-0 text-center mt-8">
+        <p className="relative text-2xl text-muted-foreground md:w-10/12 mx-auto text-center mt-8">
           I build and design modern, responsive, and performant web applications. Passionate about creating seamless user experiences from backend to frontend.
         </p>
       </div>

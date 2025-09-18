@@ -5,8 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { generateAboutMe } from '@/ai/flows/about-me-section';
-import { Loader2, Wand2, Copy } from 'lucide-react';
-import Image from 'next/image';
+import { Loader2, Wand2, Copy, Cpu, Database, GanttChart, Server, Code } from 'lucide-react';
 
 function AboutMeGenerator() {
   const [achievements, setAchievements] = useState('');
@@ -90,13 +89,40 @@ function AboutMeGenerator() {
   );
 }
 
+const skills = [
+    {
+        category: 'Languages',
+        technologies: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'SQL', 'HTML', 'CSS'],
+        icon: <Code className="h-8 w-8 text-primary" />,
+    },
+    {
+        category: 'Backend & Systems',
+        technologies: ['OOP', 'REST APIs', 'Async Programming', 'Hyper-V', 'HDFS', 'Hadoop', 'Spark', 'Hive', 'Unix/Linux', 'Networking', 'Security'],
+        icon: <Server className="h-8 w-8 text-primary" />,
+    },
+    {
+        category: 'Frameworks',
+        technologies: ['React', 'Node.js', 'Express', 'Next.js', 'FastAPI', 'AngularJS'],
+        icon: <GanttChart className="h-8 w-8 text-primary" />,
+    },
+    {
+        category: 'Databases',
+        technologies: ['PostgreSQL', 'Oracle', 'MySQL', 'MongoDB', 'Firebase', 'GraphDB (SPARQL)'],
+        icon: <Database className="h-8 w-8 text-primary" />,
+    },
+    {
+        category: 'Cloud/DevOps',
+        technologies: ['AWS', 'Docker', 'Kubernetes', 'Jenkins', 'CI/CD', 'Git', 'Maven', 'Gradle', 'Agile/Scrum'],
+        icon: <Cpu className="h-8 w-8 text-primary" />,
+    },
+];
+
 export function About() {
   return (
     <section id="about" className="container py-24 sm:py-32">
       <div className="bg-muted/50 border rounded-lg py-12">
-        <div className="px-6 flex flex-col-reverse md:flex-row gap-8 md:gap-12">
-          <div className="flex flex-col justify-between">
-            <div className="pb-6">
+        <div className="px-6 flex flex-col gap-8 md:gap-12">
+            <div className="pb-6 text-center">
               <h2 className="text-3xl md:text-4xl font-bold font-headline">
                 <span className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
                   My{' '}
@@ -104,26 +130,27 @@ export function About() {
                 Skills
               </h2>
               <p className="text-xl text-muted-foreground mt-4">
-                I am a dedicated and results-oriented Full-Stack Developer with
-                a passion for building intuitive and efficient web applications.
-                With a strong foundation in both front-end and back-end
-                technologies, I excel at turning complex problems into elegant,
-                user-friendly solutions. My goal is to continuously learn and
-                leverage new technologies to create impactful digital
-                experiences.
+                A showcase of the technologies and tools I work with.
               </p>
             </div>
-          </div>
-          <div className="relative group w-full md:w-1/2">
-             <Image
-                src="https://picsum.photos/seed/10/400/400"
-                alt="Aditya Patil"
-                width={400}
-                height={400}
-                data-ai-hint="man portrait"
-                className="rounded-lg object-cover w-full h-full"
-              />
-          </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {skills.map((skillCategory) => (
+                <Card key={skillCategory.category} className="flex flex-col">
+                  <CardHeader className="flex flex-row items-center gap-4">
+                    {skillCategory.icon}
+                    <CardTitle>{skillCategory.category}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex flex-wrap gap-2">
+                    {skillCategory.technologies.map((tech) => (
+                       <div key={tech} className="bg-background border text-sm text-foreground px-3 py-1 rounded-md">
+                        {tech}
+                      </div>
+                    ))}
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
         </div>
         <div className="px-6 pt-12">
             <AboutMeGenerator />

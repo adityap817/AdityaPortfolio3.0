@@ -20,7 +20,7 @@ export function Hero() {
 
       <div className="absolute inset-0 flex items-center justify-center -z-10">
         <h1 className="text-[10rem] md:text-[20rem] font-bold font-headline text-center text-muted-foreground/10 select-none whitespace-nowrap leading-none">
-          ADITYA
+          ADITYA 
         </h1>
       </div>
       <div className="relative text-center container flex flex-col items-center flex-grow justify-center">
@@ -35,6 +35,7 @@ export function Hero() {
           backend to frontend.
         </p>
       </div>
+
       <div className="container flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
         {linkedinLink && (
           <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer">
@@ -58,5 +59,6 @@ export function Hero() {
         </a>
       </div>
     </section>
+
   );
 }

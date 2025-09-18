@@ -38,16 +38,18 @@ export function Experience({ milestones }: ExperienceProps) {
       <div className="container relative">
         <WavyLine />
         <div className="relative flex justify-between w-full">
-          {milestones.map((milestone, index) => (
+          {milestones.map((milestone, index) => {
+            const isAbove = index % 2 === 0;
+            return (
             <div 
               key={index} 
               className="relative flex flex-col items-center group"
               // Align items alternately above and below the line
-              style={{ transform: index % 2 === 0 ? 'translateY(-70px)' : 'translateY(70px)' }}
+              style={{ transform: isAbove ? 'translateY(-70px)' : 'translateY(70px)' }}
             >
               {/* Branch */}
               <div 
-                className={`absolute ${index % 2 === 0 ? 'top-full' : 'bottom-full'} left-1/2 w-px h-16 bg-border`}
+                className={`absolute ${isAbove ? 'top-full' : 'bottom-full'} left-1/2 w-px h-16 bg-border`}
               ></div>
               
               {/* Dot on the timeline */}
@@ -55,13 +57,13 @@ export function Experience({ milestones }: ExperienceProps) {
                 className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10"
               ></div>
               
-              <div className="relative z-20">
-                 <div className="absolute top-1/2 -translate-y-1/2 -left-3.5 flex items-center">
-                    <div className="bg-primary text-primary-foreground text-xs font-bold rounded-full h-7 w-7 flex items-center justify-center">
+              <div className="relative z-20 w-64 md:w-72">
+                 <div className={`absolute left-1/2 -translate-x-1/2 flex items-center ${isAbove ? 'bottom-[-14px]' : 'top-[-14px]'}`}>
+                    <div className="bg-primary text-primary-foreground text-xs font-bold rounded-full h-7 w-7 flex items-center justify-center z-30">
                         {milestone.year}
                     </div>
                  </div>
-                 <Card className="ml-6 w-64 md:w-72 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                 <Card className="shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                     <CardHeader>
                       <CardTitle className="text-base">{milestone.title}</CardTitle>
                     </CardHeader>
@@ -71,7 +73,7 @@ export function Experience({ milestones }: ExperienceProps) {
                   </Card>
               </div>
             </div>
-          ))}
+          )})}
         </div>
       </div>
     </section>

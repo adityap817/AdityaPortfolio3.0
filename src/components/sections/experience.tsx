@@ -5,9 +5,25 @@ interface ExperienceProps {
   milestones: Milestone[];
 }
 
+const WavyLine = () => (
+    <svg
+      className="absolute top-1/2 left-0 w-full h-24 -translate-y-1/2"
+      preserveAspectRatio="none"
+      viewBox="0 0 1000 100"
+    >
+      <path
+        d="M-5,50 Q125,0 250,50 T500,50 T750,50 T1005,50"
+        fill="none"
+        stroke="hsl(var(--border))"
+        strokeWidth="2"
+      />
+    </svg>
+);
+
+
 export function Experience({ milestones }: ExperienceProps) {
   return (
-    <section id="experience" className="w-full py-24 sm:py-32">
+    <section id="experience" className="w-full py-24 sm:py-32 overflow-hidden">
       <div className="container">
         <h2 className="text-3xl md:text-4xl font-bold font-headline text-center">
           My{" "}
@@ -15,25 +31,45 @@ export function Experience({ milestones }: ExperienceProps) {
             Experience
           </span>
         </h2>
-        <p className="mt-4 mb-12 text-xl text-muted-foreground text-center">
+        <p className="mt-4 mb-20 text-xl text-muted-foreground text-center">
           A timeline of my career milestones and professional growth.
         </p>
       </div>
-      <div className="relative w-full overflow-x-auto pb-8">
-        <div className="absolute top-1/2 left-0 w-full h-px -translate-y-1/2 bg-border"></div>
-        <div className="relative flex w-max mx-auto px-8">
+      <div className="container relative">
+        <WavyLine />
+        <div className="relative flex justify-between w-full">
           {milestones.map((milestone, index) => (
-            <div key={index} className="relative flex flex-col items-center w-64 md:w-80 px-4">
-              <div className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background"></div>
-              <p className="text-lg font-semibold text-primary mt-8">{milestone.year}</p>
-              <Card className="mt-4 text-center">
-                <CardHeader>
-                  <CardTitle>{milestone.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{milestone.description}</p>
-                </CardContent>
-              </Card>
+            <div 
+              key={index} 
+              className="relative flex flex-col items-center group"
+              // Align items alternately above and below the line
+              style={{ transform: index % 2 === 0 ? 'translateY(-70px)' : 'translateY(70px)' }}
+            >
+              {/* Branch */}
+              <div 
+                className={`absolute ${index % 2 === 0 ? 'top-full' : 'bottom-full'} left-1/2 w-px h-16 bg-border`}
+              ></div>
+              
+              {/* Dot on the timeline */}
+              <div 
+                className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full border-4 border-background z-10"
+              ></div>
+              
+              <div className="relative z-20">
+                 <div className="absolute top-1/2 -translate-y-1/2 -left-3.5 flex items-center">
+                    <div className="bg-primary text-primary-foreground text-xs font-bold rounded-full h-7 w-7 flex items-center justify-center">
+                        {milestone.year}
+                    </div>
+                 </div>
+                 <Card className="ml-6 w-64 md:w-72 shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                    <CardHeader>
+                      <CardTitle className="text-base">{milestone.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-sm text-muted-foreground">{milestone.description}</p>
+                    </CardContent>
+                  </Card>
+              </div>
             </div>
           ))}
         </div>

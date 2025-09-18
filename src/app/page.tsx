@@ -3,7 +3,6 @@ import { About } from '@/components/sections/about';
 import { Contact } from '@/components/sections/contact';
 import { Hero } from '@/components/sections/hero';
 import { Projects } from '@/components/sections/projects';
-import { Skills } from '@/components/sections/skills';
 import { ThemeCustomizer } from '@/components/theme-customizer';
 import { projects, skills, socialLinks } from '@/lib/data';
 import { ArrowUp } from 'lucide-react';
@@ -14,9 +13,8 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Header />
       <main className="flex-1">
-        <Hero />
+        <Hero skills={skills} />
         <About />
-        <Skills skills={skills} />
         <Projects projects={projects} />
         <Contact socialLinks={socialLinks} />
       </main>

@@ -13,16 +13,16 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 62 30% 42%;
-    --primary-foreground: 60 9.1% 97.8%;
+    --primary: 62 39% 52%; /* #B3B751 */
+    --primary-foreground: 60 9.1% 9.8%;
 
-    --secondary: 167 35% 40%;
+    --secondary: 167 44% 50%; /* #45B69C */
     --secondary-foreground: 60 9.1% 97.8%;
 
     --muted: 60 4.8% 95.9%;
     --muted-foreground: 60 3.8% 46.1%;
 
-    --accent: 167 44% 50%;
+    --accent: 167 44% 50%; /* #45B69C */
     --accent-foreground: 60 9.1% 9.8%;
 
     --destructive: 0 84.2% 60.2%;
@@ -98,7 +98,7 @@
       opacity: 0;
     }
     50% {
-      opacity: 0.3;
+      opacity: 0.5;
     }
     100% {
       transform: translateX(100vw) translateY(100vh) rotate(45deg);

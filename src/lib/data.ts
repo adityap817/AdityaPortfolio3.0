@@ -22,6 +22,7 @@ export type SocialLink = {
 export type Milestone = {
     year: string;
     title: string;
+    company: string;
     description: string;
 }
 
@@ -93,23 +94,27 @@ export const socialLinks: SocialLink[] = [
 
 export const careerMilestones: Milestone[] = [
     {
-        year: '2023',
-        title: 'Senior Developer at Tech Solutions Inc.',
+        year: '2019 - 2023',
+        title: 'Senior Developer',
+        company: 'Tech Solutions Inc.',
         description: 'Led the development of a new client-facing analytics platform, improving data visualization and user engagement by 40%. Mentored junior developers and conducted code reviews.'
     },
     {
         year: '2021',
-        title: 'Mid-Level Developer at Innovate LLC',
+        title: 'Mid-Level Developer',
+        company: 'Innovate LLC',
         description: 'Contributed to a large-scale e-commerce application, focusing on backend services and API integrations. Implemented a new payment gateway, increasing transaction success rate by 15%.'
     },
     {
         year: '2019',
-        title: 'Junior Developer at Web Creators Co.',
+        title: 'Junior Developer',
+        company: 'Web Creators Co.',
         description: 'Started my professional journey by building and maintaining websites for small businesses. Gained foundational experience in HTML, CSS, JavaScript, and client communication.'
     },
     {
         year: '2018',
         title: 'Graduated University',
+        company: 'University of Example',
         description: 'Completed my Bachelor\'s degree in Computer Science, where I discovered my passion for web development and software engineering.'
     }
 ]

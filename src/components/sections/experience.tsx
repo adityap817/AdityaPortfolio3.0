@@ -1,9 +1,18 @@
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardHeader, CardTitle, CardContent, CardDescription } from "@/components/ui/card";
 import { type Milestone } from "@/lib/data";
+import { Building, Code, GraduationCap, Briefcase } from "lucide-react";
 
 interface ExperienceProps {
   milestones: Milestone[];
 }
+
+const companyIcons: { [key: string]: React.ReactNode } = {
+  'Tech Solutions Inc.': <Building className="h-8 w-8 text-primary" />,
+  'Innovate LLC': <Briefcase className="h-8 w-8 text-primary" />,
+  'Web Creators Co.': <Code className="h-8 w-8 text-primary" />,
+  'University of Example': <GraduationCap className="h-8 w-8 text-primary" />,
+}
+
 
 const WavyLine = () => (
     <svg
@@ -57,13 +66,19 @@ export function Experience({ milestones }: ExperienceProps) {
                 <div className="w-px h-8 bg-border"></div>
               </div>
               
-              <div className={`relative z-20 w-64 md:w-72 ${isAbove ? 'mb-24' : 'mt-24'}`}>
+              <div className={`relative z-20 w-64 md:w-80 ${isAbove ? 'mb-24' : 'mt-24'}`}>
                  <Card className="shadow-lg group-hover:shadow-xl transition-shadow duration-300 relative">
                     <div className="absolute -top-3 left-4 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
                       {milestone.year}
                     </div>
                     <CardHeader>
-                      <CardTitle className="text-base pt-4">{milestone.title}</CardTitle>
+                      <div className="flex items-start gap-4">
+                        {companyIcons[milestone.company] || <Building className="h-8 w-8 text-primary" />}
+                        <div className="flex-1 pt-1">
+                          <CardTitle className="text-base">{milestone.title}</CardTitle>
+                          <CardDescription>{milestone.company}</CardDescription>
+                        </div>
+                      </div>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground">{milestone.description}</p>

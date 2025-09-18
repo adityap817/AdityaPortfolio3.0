@@ -1,13 +1,21 @@
+import { Button } from '@/components/ui/button';
+import { socialLinks } from '@/lib/data';
+import { FileText, Handshake, Linkedin } from 'lucide-react';
+
 export function Hero() {
+  const linkedinLink = socialLinks.find(
+    (link) => link.platform.toLowerCase() === 'linkedin'
+  );
+
   return (
     <section
       id="home"
       className="relative flex flex-col items-center justify-center py-32 md:py-48 min-h-[80vh] overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/10 dark:bg-primary/20 rounded-full blur-3xl opacity-50 flow-item-1"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/10 dark:bg-accent/20 rounded-full blur-3xl opacity-50 flow-item-2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/10 dark:bg-primary/20 rounded-full blur-3xl opacity-50 flow-item-3"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/20 dark:bg-primary/20 rounded-full blur-3xl opacity-50 flow-item-1"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/20 dark:bg-accent/20 rounded-full blur-3xl opacity-50 flow-item-2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/20 dark:bg-primary/20 rounded-full blur-3xl opacity-50 flow-item-3"></div>
       </div>
 
       <div className="absolute inset-0 flex items-center justify-center">
@@ -26,6 +34,28 @@ export function Hero() {
           applications. Passionate about creating seamless user experiences from
           backend to frontend.
         </p>
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          {linkedinLink && (
+            <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer">
+              <Button size="lg">
+                <Linkedin className="mr-2 h-5 w-5" />
+                Connect on LinkedIn
+              </Button>
+            </a>
+          )}
+          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+            <Button size="lg" variant="secondary">
+              <FileText className="mr-2 h-5 w-5" />
+              Check my Resume
+            </Button>
+          </a>
+           <a href="#contact">
+            <Button size="lg" variant="outline">
+                <Handshake className="mr-2 h-5 w-5" />
+                Collaborate
+            </Button>
+           </a>
+        </div>
       </div>
     </section>
   );

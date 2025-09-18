@@ -55,15 +55,15 @@ export function Experience({ milestones }: ExperienceProps) {
               >
                 {/* Branch */}
                 <div className="w-px h-8 bg-border"></div>
-                <div className="bg-primary text-primary-foreground text-xs font-bold rounded-full h-7 w-7 flex items-center justify-center z-10">
-                    {milestone.year}
-                </div>
               </div>
               
               <div className={`relative z-20 w-64 md:w-72 ${isAbove ? 'mb-24' : 'mt-24'}`}>
-                 <Card className="shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                 <Card className="shadow-lg group-hover:shadow-xl transition-shadow duration-300 relative">
+                    <div className="absolute -top-3 left-4 bg-primary text-primary-foreground text-xs font-bold px-3 py-1 rounded-full">
+                      {milestone.year}
+                    </div>
                     <CardHeader>
-                      <CardTitle className="text-base">{milestone.title}</CardTitle>
+                      <CardTitle className="text-base pt-4">{milestone.title}</CardTitle>
                     </CardHeader>
                     <CardContent>
                       <p className="text-sm text-muted-foreground">{milestone.description}</p>

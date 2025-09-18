@@ -23,7 +23,7 @@ export function Hero() {
           ADITYA
         </h1>
       </div>
-      <div className="relative text-center container flex flex-col items-center">
+      <div className="relative text-center container flex flex-col items-center flex-grow justify-center">
         <h2 className="text-6xl md:text-8xl font-bold font-headline">
           <span className="bg-gradient-to-r from-primary to-accent text-transparent bg-clip-text">
             Aditya Patil
@@ -34,28 +34,28 @@ export function Hero() {
           applications. Passionate about creating seamless user experiences from
           backend to frontend.
         </p>
-        <div className="mt-24 flex flex-col sm:flex-row items-center justify-center gap-4">
-          {linkedinLink && (
-            <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer">
-              <Button size="lg">
-                <Linkedin className="mr-2 h-5 w-5" />
-                Connect on LinkedIn
-              </Button>
-            </a>
-          )}
-          <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
-            <Button size="lg" variant="secondary">
-              <FileText className="mr-2 h-5 w-5" />
-              Check my Resume
+      </div>
+      <div className="container flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
+        {linkedinLink && (
+          <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer">
+            <Button size="lg">
+              <Linkedin className="mr-2 h-5 w-5" />
+              Connect on LinkedIn
             </Button>
           </a>
-           <a href="#contact">
-            <Button size="lg" variant="outline">
-                <Handshake className="mr-2 h-5 w-5" />
-                Collaborate
-            </Button>
-           </a>
-        </div>
+        )}
+        <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+          <Button size="lg" variant="secondary">
+            <FileText className="mr-2 h-5 w-5" />
+            Check my Resume
+          </Button>
+        </a>
+        <a href="#contact">
+          <Button size="lg" variant="outline">
+            <Handshake className="mr-2 h-5 w-5" />
+            Collaborate
+          </Button>
+        </a>
       </div>
     </section>
   );

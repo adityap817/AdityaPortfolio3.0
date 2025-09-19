@@ -1,3 +1,4 @@
+
 export type Skill = {
   category: string;
   technologies: string[];
@@ -97,7 +98,8 @@ export const projects: Project[] = [
 export const socialLinks: SocialLink[] = [
     { platform: "GitHub", url: "https://github.com" },
     { platform: "LinkedIn", url: "https://linkedin.com" },
-    { platform: "Twitter", url: "https://twitter.com" },
+    { platform: "LeetCode", url: "https://leetcode.com" },
+    { platform: "Instagram", url: "https://instagram.com" },
 ]
 
 export const careerMilestones: Milestone[] = [

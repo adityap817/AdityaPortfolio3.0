@@ -1,7 +1,7 @@
 'use client';
 
 import { socialLinks } from '@/lib/data';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { Github, Linkedin, Code2, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
@@ -9,7 +9,8 @@ import { usePathname } from 'next/navigation';
 const socialIconMap: { [key: string]: React.ReactNode } = {
   github: <Github className="h-5 w-5" />,
   linkedin: <Linkedin className="h-5 w-5" />,
-  twitter: <Twitter className="h-5 w-5" />,
+  leetcode: <Code2 className="h-5 w-5" />,
+  instagram: <Instagram className="h-5 w-5" />,
 };
 
 export function SocialsHeader() {

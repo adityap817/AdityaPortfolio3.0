@@ -16,7 +16,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { type SocialLink } from "@/lib/data"
-import { Github, Linkedin, Twitter } from "lucide-react"
+import { Github, Linkedin, Code2, Instagram } from "lucide-react"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -33,7 +33,8 @@ const formSchema = z.object({
 const socialIconMap: { [key: string]: React.ReactNode } = {
   github: <Github className="h-6 w-6" />,
   linkedin: <Linkedin className="h-6 w-6" />,
-  twitter: <Twitter className="h-6 w-6" />,
+  leetcode: <Code2 className="h-6 w-6" />,
+  instagram: <Instagram className="h-6 w-6" />,
 }
 
 interface ContactProps {

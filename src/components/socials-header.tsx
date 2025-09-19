@@ -29,7 +29,7 @@ export function SocialsHeader() {
         <div className="flex items-center gap-3 p-2 border border-border/40 bg-background/60 backdrop-blur-lg rounded-full shadow-lg">
           <Avatar className="h-9 w-9">
             <AvatarImage
-              src="https://picsum.photos/seed/aditya/100/100"
+              src="/profile.jpg"
               alt="Aditya Patil"
               data-ai-hint="profile picture"
             />

@@ -4,6 +4,8 @@ import { socialLinks } from '@/lib/data';
 import { Github, Linkedin, Code2, Instagram } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Separator } from './ui/separator';
 
 const socialIconMap: { [key: string]: React.ReactNode } = {
   github: <Github className="h-5 w-5" />,
@@ -25,7 +27,16 @@ export function SocialsHeader() {
         {/* Rope */}
         <div className="w-px h-8 bg-border/80"></div>
         
-        <div className="flex flex-col items-center gap-2 p-2 border border-border/40 bg-background/60 backdrop-blur-lg rounded-full shadow-lg">
+        <div className="flex items-center gap-3 p-2 border border-border/40 bg-background/60 backdrop-blur-lg rounded-full shadow-lg">
+          <Avatar className="h-9 w-9">
+            <AvatarImage
+              src="https://picsum.photos/seed/aditya/100/100"
+              alt="Aditya Patil"
+              data-ai-hint="profile picture"
+            />
+            <AvatarFallback>AP</AvatarFallback>
+          </Avatar>
+          <Separator orientation="vertical" className="h-6" />
           {socialLinks.map((link) => (
             <a
               href={link.url}
@@ -37,7 +48,7 @@ export function SocialsHeader() {
               <Button
                 variant="ghost"
                 size="icon"
-                className="rounded-full h-9 w-9 text-muted-foreground hover:text-foreground transition-colors"
+                className="rounded-full h-8 w-8 text-muted-foreground hover:text-foreground transition-colors"
               >
                 {socialIconMap[link.platform.toLowerCase()]}
               </Button>

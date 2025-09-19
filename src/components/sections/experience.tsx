@@ -7,10 +7,10 @@ interface ExperienceProps {
 }
 
 const companyIcons: { [key: string]: React.ReactNode } = {
-  'Tech Solutions Inc.': <Building className="h-8 w-8 text-primary" />,
-  'Innovate LLC': <Briefcase className="h-8 w-8 text-primary" />,
-  'Web Creators Co.': <Code className="h-8 w-8 text-primary" />,
-  'University of Example': <GraduationCap className="h-8 w-8 text-primary" />,
+  'Cohesity Inc.': <Building className="h-8 w-8 text-primary" />,
+  'Veritas Technologies LLC': <Briefcase className="h-8 w-8 text-primary" />,
+  'Arizona State University': <GraduationCap className="h-8 w-8 text-primary" />,
+  'Pune University': <GraduationCap className="h-8 w-8 text-primary" />,
 }
 
 const WavyLine = () => (

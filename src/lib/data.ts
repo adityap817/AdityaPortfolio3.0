@@ -180,27 +180,27 @@ export const socialLinks: SocialLink[] = [
 
 export const careerMilestones: Milestone[] = [
     {
+        year: '2025 - Present',
+        title: 'Summer Intern',
+        company: 'Cohesity Inc.',
+        description: 'Gained hands-on experience in a fast-paced tech environment, contributing to key projects and learning from industry professionals.'
+    },
+    {
+        year: '2023 - 2024',
+        title: 'Assoc. IT Apps Specialist & Intern',
+        company: 'Veritas Technologies LLC',
+        description: 'Transitioned from an intern role to a specialist, working on internal applications and gaining experience in enterprise software development and IT operations.'
+    },
+    {
+        year: '2024 - 2026',
+        title: 'MS Software Engineering',
+        company: 'Arizona State University',
+        description: 'Pursuing a Master\'s degree to deepen my expertise in advanced software engineering principles and practices.'
+    },
+    {
         year: '2019 - 2023',
-        title: 'Senior Developer',
-        company: 'Tech Solutions Inc.',
-        description: 'Led the development of a new client-facing analytics platform, improving data visualization and user engagement by 40%. Mentored junior developers and conducted code reviews.'
-    },
-    {
-        year: '2021',
-        title: 'Mid-Level Developer',
-        company: 'Innovate LLC',
-        description: 'Contributed to a large-scale e-commerce application, focusing on backend services and API integrations. Implemented a new payment gateway, increasing transaction success rate by 15%.'
-    },
-    {
-        year: '2019',
-        title: 'Junior Developer',
-        company: 'Web Creators Co.',
-        description: 'Started my professional journey by building and maintaining websites for small businesses. Gained foundational experience in HTML, CSS, JavaScript, and client communication.'
-    },
-    {
-        year: '2018',
-        title: 'Graduated University',
-        company: 'University of Example',
-        description: 'Completed my Bachelor\'s degree in Computer Science, where I discovered my passion for web development and software engineering.'
+        title: 'B.E Computer Engineering',
+        company: 'Pune University',
+        description: 'Completed my Bachelor\'s degree, where I built a strong foundation in computer science and software development.'
     }
 ]

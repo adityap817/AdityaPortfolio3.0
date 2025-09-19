@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk, Cedarville_Cursive, Alex_Brush } from 'next/font/google';
+import { Inter, Space_Grotesk, Cedarville_Cursive } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
@@ -13,11 +13,6 @@ const spaceGrotesk = Space_Grotesk({
 const cedarvilleCursive = Cedarville_Cursive({
   subsets: ['latin'],
   variable: '--font-cedarville-cursive',
-  weight: '400',
-});
-const alexBrush = Alex_Brush({
-  subsets: ['latin'],
-  variable: '--font-alex-brush',
   weight: '400',
 });
 
@@ -39,8 +34,7 @@ export default function RootLayout({
           'font-body antialiased',
           inter.variable,
           spaceGrotesk.variable,
-          cedarvilleCursive.variable,
-          alexBrush.variable
+          cedarvilleCursive.variable
         )}
       >
         <ThemeProvider

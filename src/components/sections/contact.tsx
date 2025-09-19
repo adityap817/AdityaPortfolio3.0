@@ -17,8 +17,6 @@ import { Textarea } from "@/components/ui/textarea"
 import { useToast } from "@/hooks/use-toast"
 import { type SocialLink } from "@/lib/data"
 import { Github, Linkedin, Code2, Instagram } from "lucide-react"
-import { Card, CardContent } from "../ui/card"
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -140,17 +138,6 @@ export function Contact({ socialLinks }: ContactProps) {
                 </Button>
               </a>
             ))}
-           </div>
-           <div className="pt-8">
-            <Card>
-              <CardContent className="pt-6 flex items-center justify-center gap-4">
-                <Avatar className="h-16 w-16">
-                  <AvatarImage src="/adi.jpg" alt="Aditya Patil" />
-                  <AvatarFallback>AP</AvatarFallback>
-                </Avatar>
-                <p style={{fontFamily: "var(--font-alex-brush)"}} className="text-4xl">Aditya Patil</p>
-              </CardContent>
-            </Card>
            </div>
         </div>
       </div>

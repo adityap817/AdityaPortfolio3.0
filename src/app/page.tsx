@@ -8,11 +8,13 @@ import { projects, socialLinks, careerMilestones } from '@/lib/data';
 import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Experience } from '@/components/sections/experience';
+import { SocialsHeader } from '@/components/socials-header';
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
+      <SocialsHeader />
       <main className="flex-1">
         <Hero />
         <Experience milestones={careerMilestones} />
@@ -22,7 +24,7 @@ export default function Home() {
       </main>
       <ThemeCustomizer />
       <div className="fixed bottom-4 right-4 z-50">
-         <a href="#home">
+        <a href="#home">
           <Button size="icon" className="rounded-full">
             <ArrowUp className="h-4 w-4" />
             <span className="sr-only">Scroll to top</span>

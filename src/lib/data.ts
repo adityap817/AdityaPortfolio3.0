@@ -174,10 +174,10 @@ export const projects: Project[] = [
 ];
 
 export const socialLinks: SocialLink[] = [
-    { platform: "GitHub", url: "https://github.com" },
-    { platform: "LinkedIn", url: "https://linkedin.com" },
-    { platform: "LeetCode", url: "https://leetcode.com" },
-    { platform: "Instagram", url: "https://instagram.com" },
+    { platform: "GitHub", url: "https://github.com/adityap817/" },
+    { platform: "LinkedIn", url: "https://www.linkedin.com/in/adityap817/" },
+    { platform: "LeetCode", url: "https://leetcode.com/adityaa_24" },
+    { platform: "Instagram", url: "https://instagram.com/adityapaatil_/" },
 ]
 
 export const careerMilestones: Milestone[] = [

@@ -53,44 +53,42 @@ export const skills: Skill[] = [
 export const projects: Project[] = [
   {
     id: 'proj-1',
-    title: 'Project Alpha',
+    title: 'Scrum Simulator',
     description:
-      'A comprehensive web analytics dashboard that provides real-time insights into user behavior and site performance. Built with Next.js and a robust backend.',
-    technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL', 'Chart.js'],
+      'Built a Java-based Agile Scrum simulator. Led sprint planning and retrospectives, improving team efficiency by 20%.',
+    technologies: ['Java', 'Agile', 'Scrum'],
     links: {
-      repo: 'https://github.com',
-      live: 'https://vercel.com',
+      repo: 'https://github.com/SER515asu/ser515-crystal',
     },
   },
   {
     id: 'proj-2',
-    title: 'E-Commerce Platform',
+    title: 'Travel Path: Itinerary Planner',
     description:
-      'A full-featured e-commerce site with product management, shopping cart functionality, and a secure checkout process. Optimized for performance and user experience.',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Stripe API'],
+      'Delivered personalized itineraries using GNIS-LD, SPARQL, and knowledge graphs. Built with ReactJS, FastAPI for real-time, semantic trip planning.',
+    technologies: ['React', 'FastAPI', 'SPARQL', 'Knowledge Graphs'],
     links: {
-      repo: 'https://github.com',
-      live: 'https://vercel.com',
+      live: 'https://travel-path-chi.vercel.app/',
     },
   },
   {
     id: 'proj-3',
-    title: 'Mobile Task Manager',
+    title: 'Go Text - Messenger',
     description:
-      'A cross-platform mobile application for task management, featuring offline capabilities and synchronization across devices. Built with React Native.',
-    technologies: ['React Native', 'Firebase', 'Redux Toolkit'],
+      'Built with React and Firebase for real-time messaging and Google Auth. Stored messages with timestamps and unique IDs using Firestore.',
+    technologies: ['React', 'Firebase', 'Firestore', 'Google Auth'],
     links: {
-      repo: 'https://github.com',
+      repo: 'https://github.com/adityap817/WhatsApp-CLone-ReactJS-',
     },
   },
   {
     id: 'proj-4',
-    title: 'Headless CMS',
+    title: 'Google Flights',
     description:
-      'A flexible and developer-friendly headless CMS that allows content creators to manage data for multiple frontends through a clean API.',
-    technologies: ['Python', 'Django REST Framework', 'Docker', 'PostgreSQL'],
+      'Recreated flight search UI using ReactJS, Material UI, and Google Places API. Followed design specs to ensure accurate layout and location autocomplete.',
+    technologies: ['React', 'Material UI', 'Google Places API'],
     links: {
-      repo: 'https://github.com',
+      live: 'https://google-flights-prod.vercel.app/',
     },
   },
   {

@@ -9,8 +9,10 @@ import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Experience } from '@/components/sections/experience';
 import { SocialsHeader } from '@/components/socials-header';
+import { getProjects } from '@/app/actions';
 
-export default function Home() {
+export default async function Home() {
+  const projects = await getProjects();
   return (
     <div className="flex flex-col min-h-screen">
       <Header />

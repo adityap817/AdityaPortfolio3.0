@@ -8,10 +8,11 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Github, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink, PlusCircle } from 'lucide-react';
 import type { Project } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
+import { AddProjectDialog } from '@/components/add-project-dialog';
 
 interface ProjectsProps {
   projects: Project[];
@@ -34,6 +35,10 @@ export function Projects({ projects }: ProjectsProps) {
         <p className="mt-4 text-xl text-muted-foreground">
           Here are some of the projects I&apos;ve worked on.
         </p>
+      </div>
+
+      <div className="flex justify-center mb-8">
+        <AddProjectDialog />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">

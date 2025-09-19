@@ -1,6 +1,12 @@
 import { Button } from '@/components/ui/button';
 import { socialLinks } from '@/lib/data';
 import { FileText, Handshake, Linkedin } from 'lucide-react';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 export function Hero() {
   const linkedinLink = socialLinks.find(
@@ -40,12 +46,40 @@ export function Hero() {
 
       <div className="container flex flex-col sm:flex-row items-center justify-center gap-4 mt-12 pb-8">
         {linkedinLink && (
-          <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer">
-            <Button size="lg">
-              <Linkedin className="mr-2 h-5 w-5" />
-              Connect on LinkedIn
-            </Button>
-          </a>
+          <Popover>
+            <PopoverTrigger asChild>
+              <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer">
+                <Button size="lg" className="transition-transform duration-300 hover:scale-110">
+                  <Linkedin className="mr-2 h-5 w-5" />
+                  Connect on LinkedIn
+                </Button>
+              </a>
+            </PopoverTrigger>
+            <PopoverContent className="w-80">
+              <div className="flex items-center gap-4">
+                <Avatar className="h-16 w-16">
+                  <AvatarImage src="/adi.jpg" alt="Aditya Patil" />
+                  <AvatarFallback>AP</AvatarFallback>
+                </Avatar>
+                <div className="space-y-1">
+                  <h4 className="text-lg font-semibold">Aditya Patil</h4>
+                  <p className="text-sm text-muted-foreground">
+                    Full-Stack Developer | Building Innovative Solutions
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4">
+                <p className="text-sm text-muted-foreground mb-4">
+                  Passionate about creating modern web applications and seamless user experiences. Let's connect!
+                </p>
+                <a href={linkedinLink.url} target="_blank" rel="noopener noreferrer" className="w-full">
+                  <Button className="w-full">
+                    View Profile
+                  </Button>
+                </a>
+              </div>
+            </PopoverContent>
+          </Popover>
         )}
         <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">
           <Button size="lg" variant="secondary">
@@ -61,6 +95,5 @@ export function Hero() {
         </a>
       </div>
     </section>
-
   );
 }

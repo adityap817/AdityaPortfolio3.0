@@ -180,10 +180,10 @@ export const socialLinks: SocialLink[] = [
 
 export const careerMilestones: Milestone[] = [
     {
-        year: '2025 - Present',
-        title: 'Summer Intern',
-        company: 'Cohesity Inc.',
-        description: 'Gained hands-on experience in a fast-paced tech environment, contributing to key projects and learning from industry professionals.'
+        year: '2019 - 2023',
+        title: 'B.E Computer Engineering',
+        company: 'Pune University',
+        description: 'Completed my Bachelor\'s degree, where I built a strong foundation in computer science and software development.'
     },
     {
         year: '2023 - 2024',
@@ -198,9 +198,9 @@ export const careerMilestones: Milestone[] = [
         description: 'Pursuing a Master\'s degree to deepen my expertise in advanced software engineering principles and practices.'
     },
     {
-        year: '2019 - 2023',
-        title: 'B.E Computer Engineering',
-        company: 'Pune University',
-        description: 'Completed my Bachelor\'s degree, where I built a strong foundation in computer science and software development.'
-    }
+        year: '2025 - Present',
+        title: 'Summer Intern',
+        company: 'Cohesity Inc.',
+        description: 'Gained hands-on experience in a fast-paced tech environment, contributing to key projects and learning from industry professionals.'
+    },
 ]

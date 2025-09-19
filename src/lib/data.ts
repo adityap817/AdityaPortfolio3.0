@@ -93,6 +93,84 @@ export const projects: Project[] = [
       repo: 'https://github.com',
     },
   },
+  {
+    id: 'proj-5',
+    title: 'AI Chatbot Assistant',
+    description:
+      'An intelligent chatbot built with Genkit and integrated into a customer support portal. Provides instant answers and escalates complex issues.',
+    technologies: ['Genkit', 'Next.js', 'Firebase', 'Tailwind CSS'],
+    links: {
+      repo: 'https://github.com',
+    },
+  },
+  {
+    id: 'proj-6',
+    title: 'Real-time Stock Tracker',
+    description:
+      'A web application that displays real-time stock market data using WebSockets and advanced charting libraries for financial analysis.',
+    technologies: ['React', 'WebSockets', 'D3.js', 'Node.js'],
+    links: {
+      repo: 'https://github.com',
+      live: 'https://vercel.com',
+    },
+  },
+  {
+    id: 'proj-7',
+    title: 'Social Media Aggregator',
+    description:
+      'A platform that aggregates content from various social media APIs into a single, unified feed. Includes filtering and search functionality.',
+    technologies: ['Vue.js', 'Express', 'OAuth', 'MongoDB'],
+    links: {
+      repo: 'https://github.com',
+    },
+  },
+  {
+    id: 'proj-8',
+    title: 'Cloud Storage Solution',
+    description:
+      'A custom cloud storage service with file versioning, sharing, and robust access control. Built on AWS S3 with a custom management interface.',
+    technologies: ['AWS S3', 'Node.js', 'React', 'Docker'],
+    links: {
+      repo: 'https://github.com',
+    },
+  },
+  {
+    id: 'proj-9',
+    title: 'IoT Smart Home Hub',
+    description: 'A central hub for managing and monitoring IoT devices in a smart home. Features a responsive dashboard and push notifications.',
+    technologies: ['MQTT', 'React', 'Node.js', 'PostgreSQL'],
+    links: {
+      repo: 'https://github.com',
+    },
+  },
+  {
+    id: 'proj-10',
+    title: 'Code Collaboration Tool',
+    description: 'A real-time code editor and collaboration platform, similar to Google Docs but for developers, with syntax highlighting and shared terminals.',
+    technologies: ['WebRTC', 'React', 'Monaco Editor', 'Socket.IO'],
+    links: {
+      live: 'https://vercel.com',
+    },
+  },
+  {
+    id: 'proj-11',
+    title: 'Recipe Finder App',
+    description: 'An application that helps users find recipes based on ingredients they have. Uses a third-party recipe API and saves user favorites.',
+    technologies: ['Next.js', 'tRPC', 'Prisma', 'Tailwind CSS'],
+    links: {
+      repo: 'https://github.com',
+      live: 'https://vercel.com',
+    },
+  },
+  {
+    id: 'proj-12',
+    title: 'Fitness Tracker PWA',
+    description: 'A Progressive Web App to track workouts, set goals, and visualize progress. Works offline and is installable on mobile devices.',
+    technologies: ['React', 'PWA', 'IndexedDB', 'Chart.js'],
+    links: {
+      repo: 'https://github.com',
+    },
+  },
 ];
 
 export const socialLinks: SocialLink[] = [

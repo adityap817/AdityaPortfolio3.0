@@ -24,6 +24,54 @@
       "description": "A content management system.",
       "imageUrl": "https://picsum.photos/seed/4/1200/800",
       "imageHint": "content management"
+    },
+    {
+      "id": "proj-5",
+      "description": "An AI chatbot assistant.",
+      "imageUrl": "https://picsum.photos/seed/5/1200/800",
+      "imageHint": "chatbot ai"
+    },
+    {
+      "id": "proj-6",
+      "description": "A real-time stock tracker.",
+      "imageUrl": "https://picsum.photos/seed/6/1200/800",
+      "imageHint": "stock chart"
+    },
+    {
+      "id": "proj-7",
+      "description": "A social media aggregator.",
+      "imageUrl": "https://picsum.photos/seed/7/1200/800",
+      "imageHint": "social media"
+    },
+    {
+      "id": "proj-8",
+      "description": "A cloud storage solution.",
+      "imageUrl": "https://picsum.photos/seed/8/1200/800",
+      "imageHint": "cloud storage"
+    },
+    {
+      "id": "proj-9",
+      "description": "An IoT smart home hub.",
+      "imageUrl": "https://picsum.photos/seed/9/1200/800",
+      "imageHint": "smart home"
+    },
+    {
+      "id": "proj-10",
+      "description": "A code collaboration tool.",
+      "imageUrl": "https://picsum.photos/seed/10/1200/800",
+      "imageHint": "code editor"
+    },
+    {
+      "id": "proj-11",
+      "description": "A recipe finder app.",
+      "imageUrl": "https://picsum.photos/seed/11/1200/800",
+      "imageHint": "recipe food"
+    },
+    {
+      "id": "proj-12",
+      "description": "A fitness tracker PWA.",
+      "imageUrl": "https://picsum.photos/seed/12/1200/800",
+      "imageHint": "fitness tracker"
     }
   ]
 }

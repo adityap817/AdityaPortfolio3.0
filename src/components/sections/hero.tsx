@@ -13,9 +13,9 @@ export function Hero() {
       className="relative flex flex-col justify-center py-32 md:py-48 min-h-[80vh] overflow-hidden"
     >
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/30 dark:bg-primary/20 rounded-full blur-3xl opacity-60 flow-item-1"></div>
-        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/30 dark:bg-accent/20 rounded-full blur-3xl opacity-60 flow-item-2"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/30 dark:bg-primary/20 rounded-full blur-3xl opacity-60 flow-item-3"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/30 dark:bg-primary/20 rounded-full blur-3xl opacity-80 flow-item-1"></div>
+        <div className="absolute top-1/2 left-1/2 w-96 h-96 bg-accent/30 dark:bg-accent/20 rounded-full blur-3xl opacity-80 flow-item-2"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-primary/30 dark:bg-primary/20 rounded-full blur-3xl opacity-80 flow-item-3"></div>
       </div>
 
       <div className="relative flex flex-col items-center justify-center flex-grow">

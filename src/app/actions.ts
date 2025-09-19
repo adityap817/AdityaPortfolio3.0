@@ -26,6 +26,17 @@ export async function addProject(newProject: Omit<Project, 'id'>) {
     return { success: true, project: projectWithId };
 }
 
+export async function updateProject(updatedProject: Project) {
+  const index = projects.findIndex(p => p.id === updatedProject.id);
+  if (index !== -1) {
+    projects[index] = updatedProject;
+    revalidatePath('/');
+    return { success: true, project: projects[index] };
+  }
+  return { success: false, message: 'Project not found' };
+}
+
+
 export async function deleteProject(id: string) {
     const index = projects.findIndex(p => p.id === id);
     if (index !== -1) {

@@ -10,11 +10,12 @@ import {
 } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Github, ExternalLink, Trash2, Loader2 } from 'lucide-react';
+import { Github, ExternalLink, Trash2, Loader2, Pencil } from 'lucide-react';
 import type { Project } from '@/lib/data';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Image from 'next/image';
 import { AddProjectDialog } from '@/components/add-project-dialog';
+import { EditProjectDialog } from '@/components/edit-project-dialog';
 import { useAdmin } from '../admin-provider';
 import { deleteProject } from '@/app/actions';
 import { useToast } from '@/hooks/use-toast';
@@ -90,39 +91,42 @@ export function Projects({ projects }: ProjectsProps) {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {projects.map((project) => {
-          const projectImage = findImage(project.id);
+          const projectImage = project.imageUrl ? { imageUrl: project.imageUrl, imageHint: project.title } : findImage(project.id);
           const isDeleting = deletingId === project.id;
           return (
             <Card key={project.id} className="overflow-hidden flex flex-col relative">
               {isAdmin && (
-                 <AlertDialog>
-                  <AlertDialogTrigger asChild>
-                    <Button
-                        variant="destructive"
-                        size="icon"
-                        className="absolute top-2 right-2 z-10 h-8 w-8"
-                        disabled={isDeleting}
-                    >
-                        {isDeleting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
-                        <span className="sr-only">Delete Project</span>
-                    </Button>
-                  </AlertDialogTrigger>
-                  <AlertDialogContent>
-                    <AlertDialogHeader>
-                      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
-                      <AlertDialogDescription>
-                        This action cannot be undone. This will permanently delete the
-                        project &quot;{project.title}&quot;.
-                      </AlertDialogDescription>
-                    </AlertDialogHeader>
-                    <AlertDialogFooter>
-                      <AlertDialogCancel>Cancel</AlertDialogCancel>
-                      <AlertDialogAction onClick={() => handleDelete(project.id)}>
-                        Continue
-                      </AlertDialogAction>
-                    </AlertDialogFooter>
-                  </AlertDialogContent>
-                </AlertDialog>
+                <div className="absolute top-2 right-2 z-10 flex gap-2">
+                  <EditProjectDialog project={project} />
+                  <AlertDialog>
+                    <AlertDialogTrigger asChild>
+                      <Button
+                          variant="destructive"
+                          size="icon"
+                          className="h-8 w-8"
+                          disabled={isDeleting}
+                      >
+                          {isDeleting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
+                          <span className="sr-only">Delete Project</span>
+                      </Button>
+                    </AlertDialogTrigger>
+                    <AlertDialogContent>
+                      <AlertDialogHeader>
+                        <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+                        <AlertDialogDescription>
+                          This action cannot be undone. This will permanently delete the
+                          project &quot;{project.title}&quot;.
+                        </AlertDialogDescription>
+                      </AlertDialogHeader>
+                      <AlertDialogFooter>
+                        <AlertDialogCancel>Cancel</AlertDialogCancel>
+                        <AlertDialogAction onClick={() => handleDelete(project.id)}>
+                          Continue
+                        </AlertDialogAction>
+                      </AlertDialogFooter>
+                    </AlertDialogContent>
+                  </AlertDialog>
+                </div>
               )}
               {projectImage && (
                 <div className="aspect-w-4 aspect-h-3">

@@ -13,6 +13,7 @@ export type Project = {
     repo?: string;
     live?: string;
   };
+  imageUrl?: string;
 };
 
 export type SocialLink = {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
@@ -25,8 +25,9 @@ import {
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import { addProject } from '@/app/actions';
-import { Loader2, PlusCircle } from 'lucide-react';
+import { updateProject } from '@/app/actions';
+import { Loader2, Pencil } from 'lucide-react';
+import { type Project } from '@/lib/data';
 import { readFileAsDataURL } from '@/lib/utils';
 import Image from 'next/image';
 
@@ -39,22 +40,33 @@ const projectSchema = z.object({
   image: z.instanceof(File).optional(),
 });
 
-export function AddProjectDialog() {
+interface EditProjectDialogProps {
+  project: Project;
+}
+
+export function EditProjectDialog({ project }: EditProjectDialogProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  const [imagePreview, setImagePreview] = useState<string | null>(project.imageUrl || null);
   const { toast } = useToast();
 
   const form = useForm<z.infer<typeof projectSchema>>({
     resolver: zodResolver(projectSchema),
-    defaultValues: {
-      title: '',
-      description: '',
-      technologies: '',
-      repoUrl: '',
-      liveUrl: '',
-    },
   });
+
+  useEffect(() => {
+    if (isOpen) {
+        form.reset({
+            title: project.title,
+            description: project.description,
+            technologies: project.technologies.join(', '),
+            repoUrl: project.links.repo || '',
+            liveUrl: project.links.live || '',
+        });
+        setImagePreview(project.imageUrl || null);
+    }
+  }, [isOpen, project, form]);
+
 
   const handleImageChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -68,12 +80,15 @@ export function AddProjectDialog() {
   async function onSubmit(values: z.infer<typeof projectSchema>) {
     setIsSubmitting(true);
     try {
-        let imageUrl: string | undefined;
+        let newImageUrl: string | undefined = project.imageUrl;
         if (values.image) {
-            imageUrl = await readFileAsDataURL(values.image);
+            newImageUrl = await readFileAsDataURL(values.image);
+        } else if (imagePreview === null) {
+            newImageUrl = undefined;
         }
 
-        const newProject = {
+        const updatedProjectData: Project = {
+            id: project.id,
             title: values.title,
             description: values.description,
             technologies: values.technologies.split(',').map(tech => tech.trim()),
@@ -81,26 +96,25 @@ export function AddProjectDialog() {
                 repo: values.repoUrl,
                 live: values.liveUrl,
             },
-            imageUrl,
+            imageUrl: newImageUrl,
         };
 
-        const result = await addProject(newProject);
+        const result = await updateProject(updatedProjectData);
 
         if (result.success) {
             toast({
-                title: 'Project Added!',
-                description: 'Your new project has been added successfully.',
+                title: 'Project Updated!',
+                description: 'Your project has been updated successfully.',
             });
             form.reset();
-            setImagePreview(null);
             setIsOpen(false);
         } else {
-            throw new Error('Failed to add project');
+            throw new Error(result.message || 'Failed to update project');
         }
     } catch (error) {
         toast({
             title: 'Error',
-            description: 'There was an error adding your project. Please try again.',
+            description: 'There was an error updating your project. Please try again.',
             variant: 'destructive',
         });
     } finally {
@@ -109,24 +123,18 @@ export function AddProjectDialog() {
   }
 
   return (
-    <Dialog open={isOpen} onOpenChange={(open) => {
-        setIsOpen(open);
-        if (!open) {
-            form.reset();
-            setImagePreview(null);
-        }
-    }}>
+    <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        <Button>
-          <PlusCircle className="mr-2 h-4 w-4" />
-          Add New Project
+        <Button variant="outline" size="icon" className="h-8 w-8">
+            <Pencil className="h-4 w-4" />
+            <span className="sr-only">Edit Project</span>
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Add New Project</DialogTitle>
+          <DialogTitle>Edit Project</DialogTitle>
           <DialogDescription>
-            Fill out the details below to add a new project to your portfolio.
+            Update the details for your project below.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -157,25 +165,24 @@ export function AddProjectDialog() {
                 </FormItem>
               )}
             />
-             <FormField
-                control={form.control}
-                name="image"
-                render={() => (
-                  <FormItem>
-                    <FormLabel>Project Image</FormLabel>
-                    <FormControl>
-                      <Input type="file" accept="image/*" onChange={handleImageChange} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            
+            <FormItem>
+                <FormLabel>Project Image</FormLabel>
+                <FormControl>
+                    <Input type="file" accept="image/*" onChange={handleImageChange} />
+                </FormControl>
+                <FormMessage />
+            </FormItem>
 
-              {imagePreview && (
-                  <div className="w-full aspect-video relative">
-                      <Image src={imagePreview} alt="Image preview" fill className="object-cover rounded-md" />
-                  </div>
-              )}
+            {imagePreview && (
+                <div className="w-full aspect-video relative">
+                    <Image src={imagePreview} alt="Image preview" fill className="object-cover rounded-md" />
+                    <Button variant="destructive" size="sm" className="absolute top-2 right-2" onClick={() => setImagePreview(null)}>
+                        Remove Image
+                    </Button>
+                </div>
+            )}
+
             <FormField
               control={form.control}
               name="technologies"
@@ -218,7 +225,7 @@ export function AddProjectDialog() {
             <DialogFooter>
               <Button type="submit" disabled={isSubmitting}>
                 {isSubmitting ? <Loader2 className="mr-2 h-4 w-4 animate-spin" /> : null}
-                Add Project
+                Save Changes
               </Button>
             </DialogFooter>
           </form>

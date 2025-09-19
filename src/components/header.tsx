@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { cn } from '@/lib/utils';
+import { AdminLoginDialog } from './admin-login-dialog';
 
 const navLinks = [
   { name: 'Experience', href: '#experience' },
@@ -81,6 +82,7 @@ export function Header() {
             {/* Can add a search bar here if needed */}
           </div>
           <nav className="flex items-center">
+            <AdminLoginDialog />
             <ThemeToggle />
           </nav>
         </div>

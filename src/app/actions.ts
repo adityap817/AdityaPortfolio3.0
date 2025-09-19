@@ -25,3 +25,18 @@ export async function addProject(newProject: Omit<Project, 'id'>) {
 
     return { success: true, project: projectWithId };
 }
+
+export async function deleteProject(id: string) {
+    const index = projects.findIndex(p => p.id === id);
+    if (index !== -1) {
+        projects.splice(index, 1);
+        revalidatePath('/');
+        return { success: true };
+    }
+    return { success: false, message: 'Project not found' };
+}
+
+export async function verifyPassword(password: string) {
+    const isAdmin = password === process.env.ADMIN_PASSWORD;
+    return { success: isAdmin };
+}

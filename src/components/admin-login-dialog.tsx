@@ -78,7 +78,7 @@ export function AdminLoginDialog() {
       <DialogTrigger asChild>
         <Button variant="ghost" size="sm">
           <LogIn className="mr-2 h-4 w-4" />
-          Login
+          Admin Login
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">

@@ -27,7 +27,7 @@ export function SocialsHeader() {
         <div className="w-px h-8 bg-border"></div>
         
         <div className="flex items-center gap-3 p-2 border border-border/40 bg-background/60 backdrop-blur-lg rounded-full shadow-lg">
-          <Avatar className="h-9 w-9">
+          <Avatar className="h-12 w-12">
             <AvatarImage
               src="/adi.JPG"
               alt="Aditya Patil"

@@ -9,12 +9,14 @@ import { ArrowUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Experience } from '@/components/sections/experience';
 import { SocialsHeader } from '@/components/socials-header';
+import { ProfileHeader } from '@/components/profile-header';
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <Header />
       <SocialsHeader />
+      <ProfileHeader />
       <main className="flex-1">
         <Hero />
         <Experience milestones={careerMilestones} />

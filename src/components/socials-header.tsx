@@ -24,9 +24,8 @@ export function SocialsHeader() {
   return (
     <div className="fixed top-16 right-4 z-30">
       <div className="relative flex flex-col items-center">
-        <div className="flex justify-between w-full px-1">
-            <div className="w-px h-8 rope-effect"></div>
-            <div className="w-px h-8 rope-effect"></div>
+        <div className="flex justify-center w-full">
+          <div className="w-2 h-8 rope-effect"></div>
         </div>
         
         <div className="flex items-center gap-3 p-2 border border-border/40 bg-background/60 backdrop-blur-lg rounded-full shadow-lg">

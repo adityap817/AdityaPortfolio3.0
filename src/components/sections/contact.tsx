@@ -140,7 +140,7 @@ export function Contact({ socialLinks }: ContactProps) {
             ))}
            </div>
            <div className="pt-8">
-            <p style={{fontFamily: "'Cedarville Cursive', cursive"}} className="text-4xl">Aditya Patil</p>
+            <p style={{fontFamily: "var(--font-alex-brush)"}} className="text-6xl">Aditya Patil</p>
            </div>
         </div>
       </div>

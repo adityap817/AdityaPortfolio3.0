@@ -22,14 +22,14 @@ export function SocialsHeader() {
   }
 
   return (
-    <div className="fixed top-16 right-4 z-30">
+    <div className="fixed top-16 right-1/2 translate-x-1/2 sm:right-4 sm:translate-x-0 z-30 w-fit">
       <div className="relative flex flex-col items-center">
-        <div className="w-px h-8 bg-border"></div>
+        <div className="w-px h-0 sm:h-6 bg-border"></div>
         
-        <div className="flex items-center gap-3 p-2 border border-border/40 bg-background/60 backdrop-blur-lg rounded-full shadow-lg">
+        <div className="flex items-center gap-3 p-2 border border-border/40 bg-background/95 backdrop-blur-lg rounded-full shadow-lg">
           <Avatar className="h-12 w-12 transition-transform duration-300 ease-in-out hover:scale-[2.5] hover:z-50">
             <AvatarImage
-              src="/adiv.jpeg"
+              src="/adi.jpg"
               alt="Aditya Patil"
               data-ai-hint="profile picture"
             />

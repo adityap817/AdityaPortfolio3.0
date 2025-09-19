@@ -115,4 +115,13 @@
   .flow-item-3 {
     animation: flow 10s linear infinite 5s;
   }
+  .rope-effect {
+    background-image: repeating-linear-gradient(
+      45deg,
+      hsl(var(--border)),
+      hsl(var(--border)) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+  }
 }

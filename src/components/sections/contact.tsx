@@ -139,6 +139,9 @@ export function Contact({ socialLinks }: ContactProps) {
               </a>
             ))}
            </div>
+           <div className="pt-8">
+            <p style={{fontFamily: "'Cedarville Cursive', cursive"}} className="text-4xl">Aditya Patil</p>
+           </div>
         </div>
       </div>
     </section>

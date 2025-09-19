@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Space_Grotesk } from 'next/font/google';
+import { Inter, Space_Grotesk, Cedarville_Cursive } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Toaster } from '@/components/ui/toaster';
@@ -9,6 +9,11 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-space-grotesk',
+});
+const cedarvilleCursive = Cedarville_Cursive({
+  subsets: ['latin'],
+  variable: '--font-cedarville-cursive',
+  weight: '400',
 });
 
 export const metadata: Metadata = {
@@ -28,7 +33,8 @@ export default function RootLayout({
         className={cn(
           'font-body antialiased',
           inter.variable,
-          spaceGrotesk.variable
+          spaceGrotesk.variable,
+          cedarvilleCursive.variable
         )}
       >
         <ThemeProvider

@@ -28,16 +28,24 @@ export type Milestone = {
 
 export const skills: Skill[] = [
   {
-    category: 'Frontend',
-    technologies: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redux', 'Vue.js'],
+    category: 'Languages',
+    technologies: ['C', 'C++', 'Java', 'Python', 'JavaScript', 'SQL', 'HTML', 'CSS'],
   },
   {
-    category: 'Backend',
-    technologies: ['Node.js', 'Express', 'Python', 'Django', 'PostgreSQL', 'MongoDB'],
+    category: 'Backend & Systems',
+    technologies: ['OOP', 'REST APIs', 'Async Programming', 'Hyper-V', 'HDFS', 'Hadoop', 'Spark', 'Hive', 'Unix/Linux', 'Networking', 'Security'],
   },
   {
-    category: 'DevOps & Tools',
-    technologies: ['Docker', 'Git', 'CI/CD', 'Firebase', 'Vercel', 'AWS'],
+    category: 'Frameworks',
+    technologies: ['React', 'Node.js', 'Express', 'Next.js', 'FastAPI', 'AngularJS'],
+  },
+  {
+    category: 'Databases',
+    technologies: ['PostgreSQL', 'Oracle', 'MySQL', 'MongoDB', 'Firebase', 'GraphDB (SPARQL)'],
+  },
+  {
+    category: 'Cloud/DevOps',
+    technologies: ['AWS', 'Docker', 'Kubernetes', 'Jenkins', 'CI/CD', 'Git', 'Maven', 'Gradle', 'Agile/Scrum'],
   },
 ];
 
